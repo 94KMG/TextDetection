@@ -61,6 +61,17 @@ dependencies {
     implementation(libs.androidx.material3)
     //이미지 URI를 로드하기 위한 coil-compose library
     implementation("io.coil-kt:coil-compose:2.1.0")
+    //MlKit
+    // To recognize Latin script
+    implementation("com.google.mlkit:text-recognition:16.0.0")
+    // To recognize Chinese script
+    implementation("com.google.mlkit:text-recognition-chinese:16.0.0")
+    // To recognize Devanagari script
+    implementation("com.google.mlkit:text-recognition-devanagari:16.0.0")
+    // To recognize Japanese script
+    implementation("com.google.mlkit:text-recognition-japanese:16.0.0")
+    // To recognize Korean script
+    implementation("com.google.mlkit:text-recognition-korean:16.0.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

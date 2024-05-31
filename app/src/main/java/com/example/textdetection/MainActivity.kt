@@ -26,6 +26,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.example.textdetection.ui.theme.TextDetectionTheme
+import com.google.mlkit.vision.text.TextRecognition
+import com.google.mlkit.vision.text.korean.KoreanTextRecognizerOptions
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +54,12 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun TextDetectionScreen(modifier: Modifier = Modifier) {
+
+    // When using Latin script library
+    val defaultRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
+    // When using Korean script library
+    val krRecognizer = TextRecognition.getClient(KoreanTextRecognizerOptions.Builder().build())
+
     var selectedImageUri by remember { mutableStateOf<Uri?>(null) }
     // 이미지 선택을 위한 미디어 런처 초기화
     val pickMultipleMedia = rememberLauncherForActivityResult(
@@ -83,7 +92,6 @@ fun TextDetectionScreen(modifier: Modifier = Modifier) {
         }
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
